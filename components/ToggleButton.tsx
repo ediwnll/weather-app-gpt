@@ -3,12 +3,18 @@ import { Toggle, ToggleItem } from "@tremor/react";
 import { useState } from "react";
 
 function ToggleButton() {
-  const [value, setValue] = useState("1");
+  const [value, setValue] = useState("Data");
   return (
     <div>
-      <Toggle defaultValue="1" value={value} onValueChange={setValue}>
-        <ToggleItem value="1" text="Data"></ToggleItem>
-        <ToggleItem value="2" text="Chart"></ToggleItem>
+      <Toggle
+        defaultValue="Data"
+        onValueChange={(val) => {
+          console.log(val);
+          setValue(val);
+        }}
+      >
+        <ToggleItem value="Data" text="Data"></ToggleItem>
+        <ToggleItem value="Chart" text="Chart"></ToggleItem>
       </Toggle>
     </div>
   );

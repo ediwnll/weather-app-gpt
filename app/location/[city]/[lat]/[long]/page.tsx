@@ -3,6 +3,10 @@ import CalloutCard from "@/components/CalloutCard";
 import InformationPanel from "@/components/InformationPanel";
 import fetchWeatherQuery from "@/graphql/queries/fetchWeatherQueries";
 import ToggleDataVsChart from "@/components/ToggleDataVsChart";
+import getBasePath from "@/lib/getBasePath";
+import cleanWeatherData from "@/lib/cleanWeatherData";
+
+export const revalidate = 60; // revalidate this page every 60 seconds
 
 type Props = {
   params: {
@@ -26,6 +30,21 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
 
   const results: Root = data.myQuery;
 
+  const weatherDataToSend = cleanWeatherData(results, city);
+
+  const res = await fetch(`${getBasePath()}/api/getWeatherSummary`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      weatherData: weatherDataToSend,
+    }),
+  });
+
+  const GPTdata = await res.json();
+  const { content } = GPTdata;
+
   return (
     <div className="flex flex-col min-h-screen md:flex-row">
       <InformationPanel city={city} long={long} lat={lat} results={results} />
@@ -42,7 +61,7 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
           </div>
           <div className="m-2 mb-9">
             {/* Callout Card for GPT */}
-            <CalloutCard message="This is where GPT summary is available" />
+            <CalloutCard message={content} />
           </div>
 
           <ToggleDataVsChart results={results} />

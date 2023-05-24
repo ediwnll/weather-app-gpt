@@ -1,6 +1,8 @@
 import openai from "@/openai";
 import { NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 export async function POST(request: Request) {
   const { weatherData } = await request.json();
 

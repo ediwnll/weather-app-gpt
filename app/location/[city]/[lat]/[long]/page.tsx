@@ -7,6 +7,7 @@ import getBasePath from "@/lib/getBasePath";
 import cleanWeatherData from "@/lib/cleanWeatherData";
 
 export const revalidate = 60; // revalidate this page every 60 seconds
+export const runtime = "edge";
 
 type Props = {
   params: {

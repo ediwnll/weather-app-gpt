@@ -1,5 +1,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
+export const runtime = "edge";
+
 export const getClient = () => {
   const client = new ApolloClient({
     uri: process.env.API_URL,

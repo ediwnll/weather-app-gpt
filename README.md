@@ -2,6 +2,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Get your own API KEYS required for the file and keep it in your .env.local
+
+```
+API_URL=Get it from stepzen once you run stepzen
+NEXT_PUBLIC_STEPZEN_API_KEY=stepzen api key for this application
+NEXT_PUBLIC_GPT_API_KEY=your OpenAi api key
+```
+
 First, run the development server:
 
 ```bash
@@ -20,16 +28,31 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## What I used from this project
 
-To learn more about Next.js, take a look at the following resources:
+- React
+- Typescript
+- NextJs
+- Tailwindcss
+- Tremor UI
+- Apollo-client
+- Stepzen
+- Graphql
+- OpenAi API
+- Weather Meteo API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What I have learnt from this project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Improve and gain more knowledge on typescript
+- Knowledge of how to use APIs
+- Learnt about Graphql
+- Learnt about how I could use ChatGPT to generate answers
+- Manage to brush up on my UI/UX skills
+
 
 ## Deploy on Vercel
+
+Although I did manage to deploy my application to Vercel, I am using the free Vercel plan which is unable to run the application due to OpenAi taking more than 10 seconds to run it's function.
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
